@@ -1,3 +1,4 @@
+// EDIT THIS FILE TO COMPLETE ASSIGNMENT QUESTION 1
 const { chromium } = require("playwright");
 
 async function sortHackerNewsArticles() {
@@ -6,10 +7,6 @@ async function sortHackerNewsArticles() {
   const page = await context.newPage();
 
   await page.goto("https://news.ycombinator.com/newest");
-
-  (async () => {
-    await sortHackerNewsArticles();
-  })();
 
   // wait for articles to load
   await page.waitForSelector(".athing");
@@ -102,5 +99,8 @@ function convertAgeToMinutes(age) {
   if (unit.startsWith("day")) return numValue * 60 * 24;
   if (unit.startsWith("month")) return numValue * 60 * 24 * 30;
   if (unit.startsWith("year")) return numValue * 60 * 24 * 365;
-  return Infinity; // fallback for unknown formats
 }
+
+(async () => {
+  await sortHackerNewsArticles();
+})();
